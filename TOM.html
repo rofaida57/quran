@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بستان الإيمان - موقع إسلامي شامل</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #0d3b2e;
+      --secondary-color: #145c43;
+      --accent-color: #d4af37;
+      --text-color: #fff;
+      --light-bg: #f5f5f5;
+      --dark-text: #333;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --light-bg: #1a1a1a;
+        --dark-text: #e0e0e0;
+      }
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Amiri', serif;
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(rgba(13, 59, 46, 0.8), rgba(13, 59, 46, 0.8)), 
+                  url('https://images.unsplash.com/photo-1560421683-2587f1591a30?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      padding: 80px 20px;
+      text-align: center;
+      border-bottom: 5px solid var(--accent-color);
+      position: relative;
+    }
+
+    .header-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    header h1 {
+      font-size: 2.8em;
+      color: var(--accent-color);
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      position: relative;
+      padding-right: 1em;
+    }
+
+    header p {
+      font-size: 1.2em;
+      margin-top: 15px;
+    }
+
+    .search-container {
+      margin-top: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 12px 20px;
+      border: 2px solid var(--accent-color);
+      border-radius: 30px;
+      background-color: rgba(255, 255, 255, 0.9);
+      font-family: 'Amiri', serif;
+      font-size: 1.1em;
+      color: var(--dark-text);
+    }
+
+    nav {
+      background-color: var(--secondary-color);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 15px;
+      gap: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    nav a {
+      color: var(--accent-color);
+      text-decoration: none;
+      padding: 12px 25px;
+      background-color: var(--primary-color);
+      border: 1px solid var(--accent-color);
+      border-radius: 30px;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    nav a:hover {
+      background-color: var(--accent-color);
+      color: var(--primary-color);
+      transform: translateY(-3px);
+    }
+
+    nav a i {
+      font-size: 1.1em;
+    }
+
+    .section {
+      padding: 50px 20px;
+      border-bottom: 1px solid var(--accent-color);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      color: var(--accent-color);
+      border-right: 5px solid var(--accent-color);
+      padding-right: 15px;
+      font-size: 1.8em;
+      margin-top: 0;
+      position: relative;
+    }
+
+    .section h2::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -5px;
+      width: 50px;
+      height: 3px;
+      background: var(--accent-color);
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background-color: var(--secondary-color);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: grayscale(20%);
+      transition: transform 0.3s, filter 0.3s;
+    }
+
+    .card:hover img {
+      transform: scale(1.05);
+      filter: grayscale(0%);
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--accent-color);
+    }
+
+    .card p {
+      color: var(--text-color);
+      font-size: 0.9em;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: var(--primary-color);
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 15px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #e8c252;
+    }
+
+    footer {
+      background-color: var(--secondary-color);
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      text-align: right;
+    }
+
+    .footer-column h3 {
+      color: var(--accent-color);
+      border-right: 3px solid var(--accent-color);
+      padding-right: 10px;
+      display: inline-block;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-column ul li a {
+      color: var(--text-color);
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .footer-column ul li a:hover {
+      color: var(--accent-color);
+      padding-right: 5px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      color: var(--text-color);
+      font-size: 1.5em;
+      transition: 0.3s;
+    }
+
+    .social-links a:hover {
+      color: var(--accent-color);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(212, 175, 55, 0.3);
+    }
+
+    .progress-container {
+      width: 100%;
+      height: 5px;
+      background: transparent;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 101;
+    }
+
+    .progress-bar {
+      height: 5px;
+      background: var(--accent-color);
+      width: 0%;
+      transition: width 0.1s;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 60px 15px;
+      }
+      
+      header h1 {
+        font-size: 2em;
+      }
+      
+      .card-container {
+        grid-template-columns: 1fr;
+      }
+      
+      nav a {
+        padding: 10px 15px;
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <header class="fade-in">
+    <div class="header-content">
+      <h1>بستان الإيمان</h1>
+      <p>موقع إسلامي شامل يحتوي على القرآن الكريم، الحديث الشريف، الأذكار، الفتاوى والمزيد</p>
+      <div class="search-container">
+        <input type="text" class="search-box" placeholder="ابحث في القرآن، الأحاديث، الفتاوى..." dir="rtl">
+      </div>
+    </div>
+  </header>
+
+  <nav aria-label="القائمة الرئيسية">
+    <a href="#quran" aria-current="page"><i class="fas fa-quran" aria-hidden="true"></i><span>القرآن الكريم</span></a>
+    <a href="#tafseer"><i class="fas fa-book-open"></i><span>كتب التفسير</span></a>
+    <a href="#sunna"><i class="fas fa-book"></i><span>كتب السنة</span></a>
+    <a href="#books"><i class="fas fa-books"></i><span>كتب دينية</span></a>
+    <a href="#azkar"><i class="fas fa-pray"></i><span>الأذكار</span></a>
+    <a href="#hajj"><i class="fas fa-kaaba"></i><span>الحج والعمرة</span></a>
+    <a href="#inheritance"><i class="fas fa-calculator"></i><span>المواريث</span></a>
+    <a href="#prayer"><i class="fas fa-praying-hands"></i><span>الصلاة</span></a>
+    <a href="#reciters"><i class="fas fa-microphone"></i><span>القراء</span></a>
+    <a href="#times"><i class="fas fa-clock"></i><span>أوقات الصلاة</span></a>
+  </nav>
+
+  <div class="section" id="quran">
+    <h2>القرآن الكريم</h2>
+    <p>استمع وتدبر كتاب الله عز وجل مع إمكانية البحث والتصفح بعدة روايات.</p>
+    
+    <div class="card-container">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1542353436-312f0e1f67ff" alt="مصحف المدينة">
+        <div class="card-content">
+          <h3>مصحف المدينة المنورة</h3>
+          <p>تصفح القرآن الكريم برواية حفص عن عاصم مع تفسير الجلالين.</p>
+          <a href="#" class="btn">البدء في القراءة</a>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Quran_%28cropped%29.jpg" alt="التفسير الميسر">
+        <div class="card-content">
+          <h3>التفسير الميسر</h3>
+          <p>تفسير مختصر للقرآن الكريم بلغة سهلة مع إمكانية الاستماع.</p>
+          <a href="#" class="btn">عرض التفسير</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="tafseer">
+    <h2>كتب التفسير</h2>
+    <p>أهم كتب تفسير القرآن الكريم لعلماء الأمة الموثوقين.</p>
+    
+    <div class="card-container">
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Ibn_kathir_tafsir.jpg" alt="تفسير ابن كثير">
+        <div class="card-content">
+          <h3>تفسير ابن كثير</h3>
+          <p>من أشهر كتب التفسير بالمأثور، يعتمد على تفسير القرآن بالقرآن والسنة.</p>
+          <a href="#" class="btn">قراءة التفسير</a>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="https://archive.org/download/gharib-alquran/1.jpg" alt="تفسير الطبري">
+        <div class="card-content">
+          <h3>تفسير الطبري</h3>
+          <p>جامع البيان في تأويل آي القرآن، من أقدم وأشمل كتب التفسير.</p>
+          <a href="#" class="btn">قراءة التفسير</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>عن الموقع</h3>
+        <p>بستان الإيمان موقع إسلامي شامل يهدف إلى نشر العلم الشرعي وتسهيل الوصول إلى المصادر الإسلامية الموثوقة.</p>
+      </div>
+      
+      <div class="footer-column">
+        <h3>روابط سريعة</h3>
+        <ul>
+          <li><a href="#quran">القرآن الكريم</a></li>
+          <li><a href="#sunna">كتب السنة</a></li>
+          <li><a href="#azkar">الأذكار اليومية</a></li>
+          <li><a href="#prayer">أوقات الصلاة</a></li>
+          <li><a href="#fatwa">الفتاوى الشرعية</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>اتصل بنا</h3>
+        <ul>
+          <li><i class="fas fa-envelope"></i> info@bustan-aliman.com</li>
+          <li><i class="fas fa-phone"></i> +966 12 345 6789</li>
+        </ul>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-telegram"></i></a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>التاريخ الهجري: <span id="hijri-date"></span></p>
+      <p>التاريخ الميلادي: <span id="gregorian-date"></span></p>
+      <p>جميع الحقوق محفوظة &copy; <span id="current-year"></span> بستان الإيمان</p>
+    </div>
+  </footer>
+
+  <script>
+    // شريط التقدم
+    window.onscroll = function() {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById("progressBar").style.width = scrolled + "%";
+    };
+
+    // تحديث التواريخ
+    function updateDates() {
+      const date = new Date();
+      document.getElementById('current-year').textContent = date.getFullYear();
+      document.getElementById('gregorian-date').textContent = 
+        date.toLocaleDateString('ar-EG', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
+    // التاريخ الهجري
+    function updateHijriDate() {
+      const hijriDateElement = document.getElementById('hijri-date');
+      fetch('https://api.aladhan.com/v1/gToH')
+        .then(response => response.json())
+        .then(data => {
+          const hijri = data.data.hijri;
+          hijriDateElement.innerHTML = `
+            ${hijri.day} ${hijri.month.ar} ${hijri.year} هـ
+          `;
+        });
+    }
+
+    // بحث ذكي
+    const searchBox = document.querySelector('.search-box');
+    let searchTimeout;
+    searchBox.addEventListener('input', function() {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        if (this.value.length > 2) {
+          console.log('بحث عن:', this.value);
+          // يمكن إضافة API البحث هنا
+        }
+      }, 500);
+    });
+
+    // زر العودة للأعلى
+    const scrollToTopButton = document.createElement('button');
+    scrollToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    scrollToTopButton.style.cssText = `
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: var(--accent-color);
+      color: var(--primary-color);
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      display: none;
+    `;
+    document.body.appendChild(scrollToTopButton);
+
+    window.addEventListener('scroll', () => {
+      scrollToTopButton.style.display = window.scrollY > 500 ? 'block' : 'none';
+    });
+
+    scrollToTopButton.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // تهيئة الصفحة
+    window.addEventListener('load', () => {
+      updateDates();
+      updateHijriDate();
+    });
+
+    // تنقل سلس
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
